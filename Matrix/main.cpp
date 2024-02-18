@@ -22,6 +22,6 @@ int main(){
     c.Matrix::print();
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    std::cout << "Time taken: " << duration.count() << " milliseconds" << std::endl;
+    std::cout << "Time: " << duration.count() << " milliseconds" << std::endl;
     return 0;
 }
