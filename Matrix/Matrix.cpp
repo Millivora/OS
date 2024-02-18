@@ -41,6 +41,11 @@ Matrix Matrix::multiply(const Matrix& other)
     return result;
 }
 
+void Matrix::threadMultiply()
+{
+    throw std::runtime_error("'Threadmultiply' is not implemented");
+}
+
 void Matrix::fillRandomNumbers()
 { 
     std::random_device rd;

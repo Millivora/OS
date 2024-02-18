@@ -14,6 +14,7 @@ class Matrix {
     Matrix(int _rows, int _cols);
     Matrix(std::vector<std::vector<double>> _data);
     Matrix multiply(const Matrix& other);
+    void threadMultiply();
     void fillRandomNumbers();
     void print() const;
 };
