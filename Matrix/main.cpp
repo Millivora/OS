@@ -18,7 +18,7 @@ int main(){
     a.print();
     b.print();
     auto start = std::chrono::steady_clock::now();
-    Matrix c = a.multiply(b);
+    Matrix c = a.Matrix::multiply(b);
     c.Matrix::print();
     auto end = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
