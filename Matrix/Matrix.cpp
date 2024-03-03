@@ -31,7 +31,6 @@ void Matrix::partialMultiply(int begin, int end, const Matrix &other, Matrix &re
     }
 }
 
-
 Matrix::Matrix(int _rows, int _cols)
 {
     rows = _rows;
@@ -68,18 +67,17 @@ Matrix Matrix::multiplyThread(const Matrix &other) const
     int step = (int)(rows / CONSTANTS::THREAD_NUMBER);
     int extra = (rows - CONSTANTS::THREAD_NUMBER * step);
 
-    for (int i = 0, begin = 0; i < CONSTANTS::THREAD_NUMBER; i++){
+    for (int i = 0, begin = 0; i < CONSTANTS::THREAD_NUMBER; i++)
+    {
         int end = begin + step + (i < extra ? 1 : 0);
-        threadGroup[i] = std::thread(&Matrix::partialMultiply, this, begin,end, std::cref(other), std::ref(result));
+        threadGroup[i] = std::thread(&Matrix::partialMultiply, this, begin, end, std::cref(other), std::ref(result));
         begin = end;
     }
-    
 
     for (int i = 0; i < CONSTANTS::THREAD_NUMBER; i++)
     {
         threadGroup[i].join();
     }
-    
 
     return result;
 }
